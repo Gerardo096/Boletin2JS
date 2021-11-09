@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+</head>
+
+<body>
+    <div>
+
+        <form>
+            <label for="potencia1">Palabra</label>
+            <input type="text" class="form-control" placeholder="palabra" id="palabra"><br>
+
+            <input type="button" value="Invertir" onclick=invertirpalabra()>
+        </form>
+    </div>
+
+    <p id="p1"></p>
+
+    <script>
+        function invertirpalabra() {
+            var palabra = document.getElementById("palabra").value;
+
+            var invertida = "";
+
+            for (i = 0; i < (palabra.length); i++) {
+                invertida = invertida + palabra[(palabra.length - 1) - i];
+            }
+
+
+            document.getElementById('p1').innerHTML = "La palabra: " + palabra + " invertida es: " + invertida;
+
+        }
+    </script>
+
+
+</body>
+
+</html>

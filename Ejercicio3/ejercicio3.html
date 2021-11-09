@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+</head>
+
+
+<body>
+    <div style="text-align: center">
+
+
+        <script>
+            var Numero = prompt("Introduzca un numero");
+            var inicial = 1;
+
+
+            for (i = Numero; i > 0; i--) {
+                for (x = 0; x < i; x++) {
+                    document.write(inicial);
+                }
+                document.write("<br>");
+                inicial++
+
+
+            }
+            inicial--;
+            for (y = 0; y < Numero; y++) {
+                for (z = 0; z <= y; z++) {
+                    document.write(inicial);
+                }
+                document.write("<br>");
+                inicial--
+            }
+        </script>
+
+    </div>
+
+
+</body>
+
+</html>
