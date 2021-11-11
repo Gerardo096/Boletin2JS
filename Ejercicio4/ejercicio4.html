@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4</title>
+</head>
+
+<body style="text-align: center;">
+    <div>
+
+        <form>
+            <label for="potencia1">Contraseña</label>
+            <input type="text" class="form-control" placeholder="Contraseña" id="contra"><br>
+
+            <br><input type="button" value="Comprobar" onclick=comprobarcontra()><br>
+        </form>
+    </div>
+
+    <p id="p1"></p>
+
+    <script>
+        function comprobarcontra() {
+            var contra = document.getElementById("contra").value;
+
+            var letra, dostercios;
+            var contma = 0,
+                contmi = 0,
+                contnum = 0,
+                contsim = 0,
+                contletra = 0;
+
+
+            if (contra.length < 10) {
+                document.getElementById('p1').innerHTML = "La contraseña tiene que contener al menos 10 caracteres";
+            } else {
+                for (i = 0; i < contra.length; i++) {
+                    letra = contra.charCodeAt(i)
+
+                    if ((letra >= 65) & (letra <= 95)) {
+                        contma++;
+                    } else if ((letra >= 97) & (letra <= 122)) {
+                        contmi++;
+                    } else if ((letra >= 48) & (letra <= 57)) {
+                        contnum++;
+                    } else {
+                        contsim++;
+                    }
+                }
+                if (contma < contmi) {
+                    dostercios = contmi;
+                } else {
+                    dostercios = contma;
+                }
+
+
+                if ((contmi * 100 / contra.length >= 10) & (contnum * 100 / contra.length >= 20) & (dostercios * 100 / contra.length >= 66)) {
+                    document.getElementById('p1').innerHTML = "La contraseña es fuerte";
+
+                } else {
+                    document.getElementById('p1').innerHTML = "La contraseña no es fuerte";
+                }
+
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>
