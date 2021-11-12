@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5</title>
+</head>
+
+<body style="text-align: center;">
+    <div>
+
+        <form>
+            <label for="potencia1">Cadena</label>
+            <input type="text" class="form-control" placeholder="1+1*1/1" id="cadena"><br>
+
+            <br> <input type="button" value="calcular" onclick=calcular()>
+        </form>
+    </div>
+
+    <p id="p1"></p>
+
+    <script>
+        function calcular() {
+            var cadena = document.getElementById("cadena").value;
+            var cifra, numero1, numero2, resultado;
+
+            numero1 = cadena.substring(0, 1);
+            for (i = 1; i < cadena.length; i++) {
+
+
+
+                signo = cadena.substring(i, 1 + i);
+
+                numero2 = cadena.substring(1 + i, 2 + i);
+
+                console.log(numero1, signo, numero2)
+
+                switch (signo) {
+                    case "+":
+                        resultado = Number(numero1) + Number(numero2);
+                        numero1 = resultado;
+
+                        break;
+                    case "-":
+                        resultado = Number(numero1) - Number(numero2);
+                        numero1 = resultado;
+                        break;
+                    case "/":
+                        resultado = Number(numero1) / Number(numero2);
+                        numero1 = resultado;
+                        break;
+                    case "*":
+                        resultado = Number(numero1) * Number(numero2);
+                        numero1 = resultado;
+                        break;
+                    default:
+
+                        break;
+                }
+            }
+
+
+
+            document.getElementById('p1').innerHTML = "El resultado de la operación es:" + resultado;
+
+        }
+    </script>
+
+
+</body>
+
+</html>
