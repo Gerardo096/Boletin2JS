@@ -6,10 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Problema 2</title>
+    <link rel="stylesheet" href="CSS/style.css">
 </head>
 
 <body onload="iniciar()">
-    <div>
+    <div id="elemento1">
 
         <form>
             <label for="segundos">Segundos a esperar</label>
@@ -19,14 +20,68 @@
             <br> <input id="boton" type="button" value="Enviar">
         </form>
     </div>
+    <div id="elemento2">
+        <h1>Esperando...</h1>
+    </div>
+
+    <div id="elemento3">
+        <h1>!!!TIEMPO AGOTADO!!!</h1>
+    </div>
+
     <script>
         function iniciar() {
 
-            document.getElementById("boton").addEventListener('click', fcontador, false);
+            document.getElementById("boton").addEventListener('click', desaparecer, false);
+            document.getElementById("boton").addEventListener('click', aparecer, false);
         }
 
 
-        function fcontador() {
+        function desaparecer() {
+            var x = document.getElementById("elemento1");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+            var h = document.getElementById("elemento3");
+            if (h.style.display === "none") {
+                h.style.display = "block";
+            } else {
+                h.style.display = "none";
+
+            }
+
+        }
+
+        function aparecer() {
+            var secs = document.getElementById("segundos").value;
+            var milisecs = secs * 1000;
+            var y = document.getElementById("elemento2");
+            if (y.style.display === "block") {
+                y.style.display = "none";
+            } else {
+                y.style.display = "block";
+
+            }
+
+            setTimeout(aparecer2, milisecs);
+
+            function aparecer2() {
+                var z = document.getElementById("elemento3");
+                if (z.style.display === "block") {
+                    z.style.display = "none";
+                } else {
+                    z.style.display = "block";
+
+                }
+                var u = document.getElementById("elemento2");
+                if (u.style.display === "none") {
+                    u.style.display = "block";
+                } else {
+                    u.style.display = "none";
+                }
+            }
+
 
         }
     </script>

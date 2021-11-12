@@ -1,1 +1,8 @@
-form {}
+#elemento2 {
+    display: none;
+}
+
+#elemeto3 {
+    display: none;
+    background-color: red;
+}
