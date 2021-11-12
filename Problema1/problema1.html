@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problema 1</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+
+<body onload="iniciar()">
+    <div>
+
+        <form>
+            <label for="cadena1">Cadena</label>
+            <input type="text" class="form-control" placeholder="cadena" id="cadena"><br>
+
+
+            <br> <input id="boton" type="button" value="Enviar">
+        </form>
+    </div>
+
+    <table id="Desordenada">
+        <tr>
+            <th>Desordenada</th>
+        </tr>
+        <tr>
+            <th>Pujador</th>
+            <th>Puja</th>
+        </tr>
+    </table>
+    <br>
+    <table id="Ordenadanom">
+        <tr>
+            <th>Ordenada Alfabeticamente</th>
+        </tr>
+        <tr>
+            <th>Pujador</th>
+            <th>Puja</th>
+        </tr>
+    </table>
+    <br>
+    <table id="Ordenadapuj">
+        <tr>
+            <th>Ordenada Valor de Puja</th>
+        </tr>
+        <tr>
+            <th>Pujador</th>
+            <th>Puja</th>
+        </tr>
+
+    </table>
+
+    <script>
+        function iniciar() {
+
+            document.getElementById("boton").addEventListener('click', tabladesord, false);
+            document.getElementById("boton").addEventListener('click', tablaordnom, false);
+            document.getElementById("boton").addEventListener('click', tablaordpuj, false);
+
+
+        }
+
+        function tabladesord() {
+            var cadena = document.getElementById("cadena").value;
+
+            var subcadena = cadena.split(";");
+            for (y = 0; y < subcadena.length; y++) {
+
+                subcadena[y] = subcadena[y].split(",");
+            }
+
+
+            for (i = 0; i < subcadena.length - 1; i++) {
+                var nombre = subcadena[i][0];
+                var numero = subcadena[i][1];
+                document.getElementById("Desordenada").insertRow(-1).innerHTML = '<td>' + nombre + '</td>' + '<td>' + numero + '</td>';
+            }
+
+        }
+
+        function tablaordpuj() {
+            var cadena = document.getElementById("cadena").value;
+
+            var subcadena = cadena.split(";");
+
+            for (y = 0; y < subcadena.length; y++) {
+
+                subcadena[y] = subcadena[y].split(",");
+            }
+
+
+
+
+            subcadena.sort(function(a, b) {
+
+
+
+                if (a[1] < b[1]) {
+                    return 1;
+                }
+                if (a[1] > b[1]) {
+                    return -1;
+                }
+
+
+                return 0;
+            });
+            for (i = 0; i < subcadena.length - 1; i++) {
+                var nombre = subcadena[i][0];
+                var numero = subcadena[i][1];
+                document.getElementById("Ordenadapuj").insertRow(-1).innerHTML = '<td>' + nombre + '</td>' + '<td>' + numero + '</td>';
+            }
+        }
+
+        function tablaordnom() {
+
+            var cadena = document.getElementById("cadena").value;
+
+            var subcadena = cadena.split(";");
+
+            for (y = 0; y < subcadena.length; y++) {
+
+                subcadena[y] = subcadena[y].split(",");
+            }
+
+
+
+
+            subcadena.sort();
+            for (i = 1; i < subcadena.length; i++) {
+                var nombre = subcadena[i][0];
+                var numero = subcadena[i][1];
+                document.getElementById("Ordenadanom").insertRow(-1).innerHTML = '<td>' + nombre + '</td>' + '<td>' + numero + '</td>';
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>
