@@ -4,5 +4,22 @@
 
 #elemeto3 {
     display: none;
-    background-color: red;
+}
+
+.parpadeo {
+    color: white;
+    animation: parpadeo-animacion 1s steps(5, start) infinite;
+    -webkit-animation: parpadeo-animacion 1s steps(5, start) infinite;
+}
+
+@keyframes parpadeo-animacion {
+    to {
+        visibility: hidden;
+    }
+}
+
+@-webkit-keyframes parpadeo-animacion {
+    to {
+        visibility: hidden;
+    }
 }

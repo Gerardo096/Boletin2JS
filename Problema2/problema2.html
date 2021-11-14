@@ -24,7 +24,7 @@
         <h1>Esperando...</h1>
     </div>
 
-    <div id="elemento3">
+    <div class="parpadeo" id="elemento3">
         <h1>!!!TIEMPO AGOTADO!!!</h1>
     </div>
 
@@ -36,7 +36,9 @@
         }
 
 
+
         function desaparecer() {
+
             var x = document.getElementById("elemento1");
             if (x.style.display === "none") {
                 x.style.display = "block";
@@ -67,6 +69,7 @@
             setTimeout(aparecer2, milisecs);
 
             function aparecer2() {
+                document.body.style.backgroundColor = "red"
                 var z = document.getElementById("elemento3");
                 if (z.style.display === "block") {
                     z.style.display = "none";

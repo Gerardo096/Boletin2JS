@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problema 3</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+
+<body onload="iniciar()">
+    <div>
+
+        <form>
+            <label for="cadena1">Pulgadas Minimas</label>
+            <input type="text" class="form-control" placeholder="0" id="pulgadasmin"><br>
+            <label for="cadena1">Pulgadas Maximas</label>
+            <input type="text" class="form-control" placeholder="0" id="pulgadasmax"><br>
+
+
+            <br> <input id="boton" type="button" value="Enviar">
+        </form>
+    </div>
+
+    <table id="tabla">
+        <th>Pulgadas</th>
+        <th>Ancho</th>
+        <th>Alto</th>
+    </table>
+
+    <p id="error"></p>
+
+
+    <script>
+        function iniciar() {
+
+            document.getElementById("boton").addEventListener('click', calcularpulgada, false);
+
+
+
+        }
+
+        function calcularpulgada() {
+            var pmin = Number(document.getElementById("pulgadasmin").value);
+            var pmax = Number(document.getElementById("pulgadasmax").value);
+
+
+            if (pmin > pmax) {
+                document.getElementById('error').innerHTML = "La priemra cantidad debe ser menor a la segunda";
+            } else {
+
+                for (i = pmin; i <= pmax; i++) {
+                    h = i * 1.245;
+                    w = i * 2.21;
+                    document.getElementById("tabla").insertRow(-1).innerHTML = '<td>' + i + '</td>' + '<td>' + w.toFixed(2) + '</td>' + '<td>' + h.toFixed(2) + '</td>';
+                }
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>
